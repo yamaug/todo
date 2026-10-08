@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>TODO</h1>
+      <p class="summary" id="summary"></p>
+    </header>
+
+    <form class="new-todo" id="new-todo" autocomplete="off">
+      <input id="new-title" type="text" placeholder="やることを入力して Enter" maxlength="200" required>
+      <input id="new-due" type="date" aria-label="期限">
+      <button type="submit">追加</button>
+    </form>
+
+    <nav class="filters" aria-label="絞り込み">
+      <button type="button" data-filter="all">すべて</button>
+      <button type="button" data-filter="active">未完了</button>
+      <button type="button" data-filter="done">完了</button>
+    </nav>
+
+    <ul class="todo-list" id="todo-list"></ul>
+    <p class="empty" id="empty" hidden></p>
+
+    <footer class="app-footer">
+      <button type="button" id="clear-done" class="link">完了したものを削除</button>
+    </footer>
+
+    <p class="hint">ダブルクリックで編集 ・ ドラッグで並べ替え</p>
+  </main>
+
+  <template id="todo-template">
+    <li class="todo" draggable="true">
+      <input type="checkbox" class="toggle" aria-label="完了">
+      <div class="body">
+        <span class="title"></span>
+        <span class="due"></span>
+      </div>
+      <button type="button" class="delete" aria-label="削除">×</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
